@@ -1,0 +1,90 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>simplemart</groupId>
+    <artifactId>simplemart</artifactId>
+    <packaging>war</packaging>
+    <version>1.0-SNAPSHOT</version>
+    <name>simplemart</name>
+
+    <build>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+            </resource>
+        </resources>
+        <finalName>simplemart</finalName>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>2.5.1</version>
+                <inherited>true</inherited>
+                <configuration>
+                    <source>1.7</source>
+                    <target>1.7</target>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.mortbay.jetty</groupId>
+                <artifactId>maven-jetty-plugin</artifactId>
+                <version>6.1.22</version>
+                <configuration>
+                    <connectors>
+                        <connector implementation="org.mortbay.jetty.nio.SelectChannelConnector">
+                            <port>9090</port>
+                            <maxIdleTime>60000</maxIdleTime>
+                        </connector>
+                    </connectors>
+                </configuration>
+            </plugin>
+        </plugins>
+
+    </build>
+
+     <dependencies>
+        <dependency>
+            <groupId>org.apache.solr</groupId>
+            <artifactId>solr-solrj</artifactId>
+            <version>4.8.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>jcl-over-slf4j</artifactId>
+            <version>1.7.7</version>
+        </dependency>
+         <dependency>
+             <groupId>org.glassfish.jersey.containers</groupId>
+             <artifactId>jersey-container-servlet</artifactId>
+             <version>2.13</version>
+         </dependency>
+         <dependency>
+             <groupId>org.glassfish.jersey.media</groupId>
+             <artifactId>jersey-media-json-jackson</artifactId>
+             <version>2.13</version>
+         </dependency>
+         <dependency>
+             <groupId>com.sun.jersey.jersey-test-framework</groupId>
+             <artifactId>jersey-test-framework-core</artifactId>
+             <version>1.18.1</version>
+             <scope>test</scope>
+         </dependency>
+
+         <dependency>
+             <groupId>org.glassfish.jersey.test-framework.providers</groupId>
+             <artifactId>jersey-test-framework-provider-inmemory</artifactId>
+             <version>2.13</version>
+             <scope>test</scope>
+         </dependency>
+
+         <dependency>
+             <groupId>org.mockito</groupId>
+             <artifactId>mockito-all</artifactId>
+             <version>1.10.8</version>
+             <scope>test</scope>
+         </dependency>
+
+    </dependencies>
+</project>

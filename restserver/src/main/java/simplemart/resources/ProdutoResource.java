@@ -35,7 +35,7 @@ public class ProdutoResource {
     @Produces(MediaType.APPLICATION_JSON)
     public Response upsertProduto(Produto p) throws ResponseException {
         if(p.getTitulo()==null || p.getDescricao() == null || p.getCategoria() == null)
-             throw new ResponseException("Há atributos nulos.");
+             throw new ResponseException("Ha atributos nulos.");
         produtoService.addProduto(p);
         return Response.status(200).build();
     }

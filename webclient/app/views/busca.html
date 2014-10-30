@@ -1,0 +1,29 @@
+<div class="input-group input-group-lg">
+    <span class="input-group-addon">Produtos</span>
+    <input ng-model="query" type="text" class="form-control" placeholder="Encontre aqui produto que você procura">
+    <span class="input-group-btn">
+        <button class="btn btn-default" type="button" ng-click="buscar(query)">Buscar</button>
+      </span>
+</div>
+
+<div class="row container-fluid panel-body">
+    <div class="col-md-4">
+        Facets
+        <ul class="list-group">
+            <button ng-repeat="facetItem in facet | filter:{count:'!0'}" class="list-group-item btn btn-default col-md-12">
+                <span class="badge">{{facetItem.count}}</span>
+                <span>{{facetItem.name}}</span>
+            </button>
+        </ul>
+    </div>
+    <div class="col-md-8">
+        <div class="well well-sm" ng-show="produtos">Foram encontrados {{produtos.length}} produtos com <b>"{{query}}"</b></div>
+        <div ng-repeat="produto in produtos" class="panel panel-primary">
+            <div class="panel-heading">{{produto.titulo}}</div>
+            <div class="panel-body">
+                {{produto.descricao}}
+            </div>
+            <div class="panel-footer"><small>{{produto.categoria}}</small></div>
+        </div>
+    </div>
+</div>

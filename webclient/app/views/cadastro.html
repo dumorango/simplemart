@@ -1,0 +1,23 @@
+<div>
+    <form novalidate class="simple-form" role="form" name="form">
+        <result-message success="success"></result-message>
+        <div ng-show="form.$invalid && success==null" class="row alert-warning alert-dismissible">Todos os campos são obrigatórios</div>
+        <div ng-show="!form.$invalid && success==null" class="row alert-success alert-dismissible">Tudo certo, agora clique em 'Cadastrar'</div>
+        <div class="formgroup">
+            <label for="titulo">Título</label>
+            <input id="titulo" name="titulo" class="form-control" ng-model="produto.titulo" placeholder="Nome do produto" required/><br/>
+        </div>
+
+        <div class="formgroup">
+            <label for="descricao">Descrição</label>
+            <input id="descricao"  class="form-control" type="text" ng-model="produto.descricao" placeholder="Decrição do produto" required/><br/>
+        </div>
+        <div class="formgroup">
+            <label for="categoria">Categoria</label>
+            <input id="categoria"  class="form-control" type="text" ng-model="produto.categoria" placeholder="Categoria do produto" required><br/>
+        </div>
+
+        <button class="btn btn-info" ng-click="reset()">RESET</button>
+        <button class="btn btn-primary" ng-disabled="form.$invalid" ng-click="update(produto)">Cadastrar</button>
+    </form>
+</div>

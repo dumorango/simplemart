@@ -1,0 +1,5 @@
+<div ng-show="success!=null" ng-class="{'success alert-success alert-dismissible':success,'danger alert-danger alert-dismissible':!success}" role="alert">
+    <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Fechar</span></button>
+    <span ng-show="success"><strong>Sucesso!</strong> Produto cadastrado</span>
+    <span ng-show="!success"><strong ng-show="!success">Erro!</strong> Não foi possível cadastrar o produto</span>
+</div>

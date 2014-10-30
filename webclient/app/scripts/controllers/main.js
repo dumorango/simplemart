@@ -1,17 +1,22 @@
-    'use strict';
+'use strict';
 
 /**
  * @ngdoc function
- * @name simplemartApp.controller:MainCtrl
+ * @name testeKarmaApp.controller:MainCtrl
  * @description
  * # MainCtrl
- * Controller of the simplemartApp
+ * Controller of the testeKarmaApp
  */
 angular.module('simplemartApp')
-  .controller('MainCtrl', function ($scope) {
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
-  });
+    .controller('MainCtrl',['$scope','myService', function ($scope,Produto) {
+        //Produto.getZero();
+        $scope.awesomeThings = [
+            'HTML5 Boilerplate',
+            'AngularJS',
+            'Karma'
+        ];
+
+        $scope.getZero = function(){
+            return Produto.getZero();
+        };
+    }]);

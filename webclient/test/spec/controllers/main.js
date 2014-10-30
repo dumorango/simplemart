@@ -6,17 +6,25 @@ describe('Controller: MainCtrl', function () {
   beforeEach(module('simplemartApp'));
 
   var MainCtrl,
+    myService,
     scope;
 
   // Initialize the controller and a mock scope
   beforeEach(inject(function ($controller, $rootScope) {
-    scope = $rootScope.$new();
-    MainCtrl = $controller('MainCtrl', {
-      $scope: scope
-    });
+      console.log($controller);
+      console.log($rootScope);
+      scope = $rootScope.$new();
+      myService = jasmine.createSpyObj('myService', ['getZero']);
+      console.log(myService);
+      myService.getZero = function(){ return 0 };
+      MainCtrl = $controller('MainCtrl', {
+          $scope: scope,
+          myService: myService
+      });
   }));
 
+
   it('should attach a list of awesomeThings to the scope', function () {
-    expect(scope.awesomeThings.length).toBe(3);
+    expect(scope.getZero()).toBe(0);
   });
 });

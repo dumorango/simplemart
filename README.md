@@ -3,6 +3,9 @@ simplemart
 
 Live Demo: http://107.178.221.29/
 
+Subir ambiente:
+-------------
+
 Iniciar o servidor Solr:
 
 	cd solrserver
@@ -18,6 +21,20 @@ Iniciar o front-end webclient (desenvolvimento):
 
 	cd webclient
 	grunt serve
+	
+Rodar testes:
+-
+
+Testes na camada REST:
+	
+	cd restserver
+	mvn test
+	
+Testes na camada Web:
+
+	cd webclient
+	grunt karma
+	
 	
 
 	

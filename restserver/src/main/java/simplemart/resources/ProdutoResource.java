@@ -21,6 +21,7 @@ public class ProdutoResource {
     public ProdutoResource() throws ResponseException {
         produtoService = new ProdutoService();
     }
+
     @GET
     @Path("search")
     @Produces(MediaType.APPLICATION_JSON)

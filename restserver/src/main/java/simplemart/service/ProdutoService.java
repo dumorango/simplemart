@@ -19,13 +19,14 @@ import java.util.Properties;
 public class ProdutoService {
 
     private SolrServer solrServer;
-    public ProdutoService(){
+    public ProdutoService() throws ResponseException {
         InputStream inputStream  = getClass().getClassLoader().getResourceAsStream("solr.properties");
         Properties properties = new Properties();
         try {
             properties.load(inputStream);
         } catch (IOException e) {
             e.printStackTrace();
+            throw new ResponseException("Erro no servidor");
         }
         String solrUrl = properties.getProperty("solrUrl");
         solrServer = new HttpSolrServer(solrUrl);
@@ -46,7 +47,6 @@ public class ProdutoService {
             throw new ResponseException("Erro ao buscar produtos");
         }
         return new FacetProdutoList(response.getResults(),response.getFacetField("categoria"));
-
     }
 
     public void addProduto(Produto produto) throws ResponseException {

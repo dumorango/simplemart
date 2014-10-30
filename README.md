@@ -1,6 +1,7 @@
 simplemart
 ==========
 
+Live Demo: http://107.178.221.29/
 
 Iniciar o servidor Solr:
 
@@ -12,5 +13,13 @@ Iniciar o servidor REST:
 
 	cd restserver
 	mvn jetty:run
+	
+Iniciar o front-end webclient (desenvolvimento):
+
+	cd webclient
+	grunt serve
+	
+
+	
 	
 	

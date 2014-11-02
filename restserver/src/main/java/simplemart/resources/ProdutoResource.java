@@ -5,22 +5,20 @@ import simplemart.entity.Produto;
 import simplemart.exception.ResponseException;
 import simplemart.service.ProdutoService;
 
+import javax.inject.Inject;
 import javax.ws.rs.*;
-import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
-
+import javax.enterprise.context.RequestScoped;
 /**
  * Created by dumorango on 27/10/14.
  */
+@RequestScoped
 @Path("produtos")
 public class ProdutoResource {
 
-    public ProdutoService produtoService = new ProdutoService();
-
-    public ProdutoResource() throws ResponseException {
-        produtoService = new ProdutoService();
-    }
+    @Inject
+    ProdutoService produtoService;
 
     @GET
     @Path("search")
@@ -39,7 +37,4 @@ public class ProdutoResource {
         produtoService.addProduto(p);
         return Response.status(200).build();
     }
-
-
-
 }

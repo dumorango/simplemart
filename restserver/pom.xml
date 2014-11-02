@@ -85,6 +85,11 @@
              <version>1.10.8</version>
              <scope>test</scope>
          </dependency>
+         <dependency>
+             <groupId>javax.enterprise</groupId>
+             <artifactId>cdi-api</artifactId>
+             <version>1.2</version>
+         </dependency>
 
-    </dependencies>
+     </dependencies>
 </project>

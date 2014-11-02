@@ -9,6 +9,7 @@ import simplemart.entity.FacetProdutoList;
 import simplemart.entity.Produto;
 import simplemart.exception.ResponseException;
 
+import javax.annotation.ManagedBean;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
@@ -16,17 +17,20 @@ import java.util.Properties;
 /**
  * Created by dumorango on 28/10/14.
  */
+
+@ManagedBean
 public class ProdutoService {
 
     private SolrServer solrServer;
-    public ProdutoService() throws ResponseException {
+
+    public ProdutoService() {
         InputStream inputStream  = getClass().getClassLoader().getResourceAsStream("solr.properties");
         Properties properties = new Properties();
         try {
             properties.load(inputStream);
         } catch (IOException e) {
             e.printStackTrace();
-            throw new ResponseException("Erro no servidor");
+            //throw new ResponseException("Erro no servidor");
         }
         String solrUrl = properties.getProperty("solrUrl");
         solrServer = new HttpSolrServer(solrUrl);
@@ -43,7 +47,6 @@ public class ProdutoService {
         try {
             response = query(query);
         } catch (SolrServerException e) {
-            e.printStackTrace();
             throw new ResponseException("Erro ao buscar produtos");
         }
         return new FacetProdutoList(response.getResults(),response.getFacetField("categoria"));
@@ -58,4 +61,11 @@ public class ProdutoService {
         }
     }
 
+    public SolrServer getSolrServer() {
+        return solrServer;
+    }
+
+    public void setSolrServer(SolrServer solrServer) {
+        this.solrServer = solrServer;
+    }
 }

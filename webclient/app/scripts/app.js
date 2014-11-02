@@ -27,10 +27,6 @@ angular
         templateUrl: 'views/busca.html',
         controller: 'BuscaCtrl'
       })
-      .when('/about', {
-        templateUrl: 'views/about.html',
-        controller: 'AboutCtrl'
-      })
       .when('/busca', {
         templateUrl: 'views/busca.html',
         controller: 'BuscaCtrl'

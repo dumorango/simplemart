@@ -12,7 +12,7 @@ angular.module('simplemartApp')
 
         this.buscar = function(q){
             var produtos = Restangular.one('produtos/search');
-            return produtos.get({q:q});
+            return produtos.get({q:q?q:'*'});
         };
         this.cadastrar = function(produto){
             var def = $q.defer();

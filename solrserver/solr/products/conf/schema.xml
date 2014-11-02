@@ -7,7 +7,7 @@
    <field name="id" type="string" indexed="true" stored="true" required="true" multiValued="false" /> 
    <field name="titulo" type="texto_produto" indexed="true" stored="true"/>
    <field name="descricao" type="texto_produto" indexed="true" stored="true"/>
-   <field name="categoria" type="texto_produto" indexed="true" stored="true"/>
+   <field name="categoria" type="string" indexed="true" stored="true"/>
  </fields>
 
 <uniqueKey>id</uniqueKey>

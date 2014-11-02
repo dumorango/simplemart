@@ -48,5 +48,5 @@ com_crashlytics_export_strings.xml
 
 target/
 
-src/test/java/IntegratedTest.java
-src/test/java/.gitignore
+
+.idea
